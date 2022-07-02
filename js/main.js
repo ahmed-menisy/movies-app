@@ -140,7 +140,7 @@ async function getAllData(url) {
 }
 // Validation Form
 const validationForm = {
-   regexUser: /^[a-zA-Z][a-zA-Z\s]{2,20}$/,
+   regexUser: /^[a-zA-Z][a-zA-Z\s]{1,20}$/,
    regexEmail: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
    regexPhone: /^(002)?01[0125]\d{8}$/,
    regexAge: /^([1-7][0-9]|80)$/,
