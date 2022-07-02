@@ -31,14 +31,14 @@
    <body class="overflow-hidden">
       <!-- -------------------------- Start Spiner 
       -------------------------- -->
-     <div class="loader">
-      <div class="sk-folding-cube">
-         <div class="sk-cube1 sk-cube"></div>
-         <div class="sk-cube2 sk-cube"></div>
-         <div class="sk-cube4 sk-cube"></div>
-         <div class="sk-cube3 sk-cube"></div>
-       </div>
-     </div>
+      <div class="loader">
+         <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+         </div>
+      </div>
       <!-- -------------------------- Start Aside 
       -------------------------- -->
       <aside class="h-100 d-flex">
@@ -140,7 +140,10 @@
          </section>
          <!-- -------------------------- Start Contact us
       -------------------------- -->
-         <section class="contact__us mt-5 px-2 px-sm-5 mx-0 mx-sm-3" id="contactUs">
+         <section
+            class="contact__us mt-5 px-2 px-sm-5 mx-0 mx-sm-3"
+            id="contactUs"
+         >
             <div class="container">
                <h2 class="display-6">ContacUs...</h2>
                <form action="">
@@ -154,7 +157,7 @@
                               name="name"
                            />
                            <p class="alert p-1 alert-danger d-none">
-                              Your Name is not valid
+                              Your Name is not valid * Minimum Two characters *
                            </p>
                         </div>
                      </div>
@@ -166,7 +169,9 @@
                               class="form-control"
                               name="email"
                            />
-                           <p class="alert p-1 alert-danger d-none">entre valid email</p>
+                           <p class="alert p-1 alert-danger d-none">
+                              entre valid email * Example@yahoo.com *
+                           </p>
                         </div>
                      </div>
                      <div class="col-md-6">
@@ -177,7 +182,10 @@
                               class="form-control"
                               name="tel"
                            />
-                           <p class="alert p-1 alert-danger d-none">entre valid phone</p>
+                           <p class="alert p-1 alert-danger d-none">
+                              Entre valid phone * Eight Numbers Example:
+                              01015265077 *
+                           </p>
                         </div>
                      </div>
                      <div class="col-md-6">
@@ -188,7 +196,9 @@
                               class="form-control"
                               name="number"
                            />
-                           <p class="alert p-1 alert-danger d-none">entre valid Age</p>
+                           <p class="alert p-1 alert-danger d-none">
+                              Entre valid Age * Start 10 Year End 80 *
+                           </p>
                         </div>
                      </div>
                      <div class="col-md-6">
@@ -200,7 +210,7 @@
                               name="password"
                            />
                            <p class="alert p-1 alert-danger d-none">
-                              entre valid password *Minimum eight characters, at
+                              Entre Valid password *Minimum eight characters, at
                               least one letter and one number:*
                            </p>
                         </div>
@@ -213,12 +223,19 @@
                               class="form-control"
                            />
                            <p class="alert p-1 alert-danger d-none">
-                              entre valid Repassword
+                              Entre Valid Repassword
                            </p>
                         </div>
                      </div>
                   </div>
-                  <button type="submit" class="btn btn-outline-danger mt-4 " id="submitBtn" disabled >Submit</button>
+                  <button
+                     type="submit"
+                     class="btn btn-outline-danger mt-4"
+                     id="submitBtn"
+                     disabled
+                  >
+                     Submit
+                  </button>
                </form>
             </div>
          </section>
