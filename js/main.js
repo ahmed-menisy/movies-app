@@ -4,8 +4,8 @@ $(document).ready(function () {
       $(this)
          .parent()
          .slideUp(1000, function () {
-            $(this).remove()
-            $('body').removeClass('overflow-hidden')
+            $(this).remove();
+            $("body").removeClass("overflow-hidden");
          });
    });
 });
@@ -139,51 +139,28 @@ async function getAllData(url) {
    displayData();
 }
 // Validation Form
-//user
-function regexUser() {
-   const userRegex = /^[a-zA-Z][a-zA-Z\s]{2,20}$/;
-   return userRegex.test($(".contact__us input").eq(0).val())
-      ? ($(".contact__us input").eq(0).next().addClass("d-none"), true)
-      : ($(".contact__us input").eq(0).next().removeClass("d-none"), false);
-}
-// email
-function regexEmail() {
-   const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-   return emailRegex.test($(".contact__us input").eq(1).val())
-      ? ($(".contact__us input").eq(1).next().addClass("d-none"), true)
-      : ($(".contact__us input").eq(1).next().removeClass("d-none"), false);
-}
-// Phone
-function regexPhone() {
-   const phoneRegex = /^(002)?01[0125]\d{8}$/;
-   return phoneRegex.test($(".contact__us input").eq(2).val())
-      ? ($(".contact__us input").eq(2).next().addClass("d-none"), true)
-      : ($(".contact__us input").eq(2).next().removeClass("d-none"), false);
-}
-// Age
-function regexAge() {
-   const ageRegex = /^([1-7][0-9]|80)$/;
-   return ageRegex.test($(".contact__us input").eq(3).val())
-      ? ($(".contact__us input").eq(3).next().addClass("d-none"), true)
-      : ($(".contact__us input").eq(3).next().removeClass("d-none"), false);
-}
-// Password
-function regexPass() {
-   const passRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
-   return passRegex.test($(".contact__us input").eq(4).val())
-      ? ($(".contact__us input").eq(4).next().addClass("d-none"), true)
-      : ($(".contact__us input").eq(4).next().removeClass("d-none"), false);
-}
-// check for repass
-function checkRePass() {
-   if (
-      $(".contact__us input").eq(4).val() == $(".contact__us input").eq(5).val()
-   ) {
-      return $(".contact__us input").eq(5).next().addClass("d-none"), true;
-   } else {
-      return $(".contact__us input").eq(5).next().removeClass("d-none"), false;
+const validationForm = {
+   regexUser: /^[a-zA-Z][a-zA-Z\s]{2,20}$/,
+   regexEmail: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+   regexPhone: /^(002)?01[0125]\d{8}$/,
+   regexAge: /^([1-7][0-9]|80)$/,
+   regexPass: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+   regexCheck: function (regexStyle, num) {
+      return regexStyle.test($(".contact__us input").eq(num).val())
+         ? ($(".contact__us input").eq(num).next().addClass("d-none"), true)
+         : ($(".contact__us input").eq(num).next().removeClass("d-none"),
+           false);
+   },
+   checkRePass: function () {
+      if (
+         $(".contact__us input").eq(4).val() == $(".contact__us input").eq(5).val()
+      ) {
+         return $(".contact__us input").eq(5).next().addClass("d-none"), true;
+      } else {
+         return $(".contact__us input").eq(5).next().removeClass("d-none"), false;
+      }
    }
-}
+};
 // -------------------- Events
 // open or close aside
 $("#btClose").click(openOrCloseAside);
@@ -200,12 +177,12 @@ $(".nav__link a")
    });
 // Validation Form Events
 $("form").on("click keyup", function (e) {
-   regexUser() &&
-   regexEmail() &&
-   regexPhone() &&
-   regexAge() &&
-   regexPass() &&
-   checkRePass()
+   validationForm.regexCheck(validationForm.regexUser, 0) &&
+   validationForm.regexCheck(validationForm.regexEmail, 1) &&
+   validationForm.regexCheck(validationForm.regexPhone, 2) &&
+   validationForm.regexCheck(validationForm.regexAge, 3) &&
+   validationForm.regexCheck(validationForm.regexPass, 4) &&
+   validationForm.checkRePass()
       ? $("#submitBtn").attr("disabled", false)
       : $("#submitBtn").attr("disabled", true);
 });
