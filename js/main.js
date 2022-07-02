@@ -153,13 +153,16 @@ const validationForm = {
    },
    checkRePass: function () {
       if (
-         $(".contact__us input").eq(4).val() == $(".contact__us input").eq(5).val()
+         $(".contact__us input").eq(4).val() ==
+         $(".contact__us input").eq(5).val()
       ) {
          return $(".contact__us input").eq(5).next().addClass("d-none"), true;
       } else {
-         return $(".contact__us input").eq(5).next().removeClass("d-none"), false;
+         return (
+            $(".contact__us input").eq(5).next().removeClass("d-none"), false
+         );
       }
-   }
+   },
 };
 // -------------------- Events
 // open or close aside
@@ -185,4 +188,9 @@ $("form").on("click keyup", function (e) {
    validationForm.checkRePass()
       ? $("#submitBtn").attr("disabled", false)
       : $("#submitBtn").attr("disabled", true);
+});
+$('form').submit(function (e) { 
+   e.preventDefault();
+   this.submit()
+   this.reset()
 });
